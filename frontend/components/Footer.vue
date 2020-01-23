@@ -1,8 +1,8 @@
 <template>
-  <v-footer
-    :fixed="fixed"
-    app
-  >
-    <span>&copy; 2019</span>
+  <v-footer>
+    <span>&copy; 2020</span>
   </v-footer>
 </template>
+<style lang="scss" scoped>
+@import '~/assets/scss/footer.scss';
+</style>

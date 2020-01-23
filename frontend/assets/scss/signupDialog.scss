@@ -1,0 +1,16 @@
+.signup {
+  color: white;
+  background-color: #A67555 !important;
+  font-size: 1.5rem;
+  width: 30%;
+}
+
+.btn-text-color {
+  color: $main-color;
+}
+
+@media screen and (max-width: 599px){
+  .signup {
+    width: 80%;
+  }
+}

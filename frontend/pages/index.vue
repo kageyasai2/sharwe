@@ -1,25 +1,27 @@
 <template>
-  <div>
     <div class="top-wrapper">
-      <div class="container">
-        <div class="top-items">
-          <h1>Sharwe</h1>
-          <h2>あなたの自慢の作品をみんなに共有しよう</h2>
-        </div>
-        <div class="top-items signin">
-          
-        </div>
+      <div class="top-message">
+        <h1>Sharwe</h1>
+        <p>利用者が作成したハンドメイド作品をみんなと共有するサービスです</p>
+        <p>作品を投稿または検索をしてお気に入りの作品を見つけよう</p>
+      </div>
+      <div class="signin-btn">
+        <SigninDialog />
+      </div>
+      <div class="signup-btn">
+        <SignupDialog />
       </div>
     </div>
-    <div class="main-wrapper" />
-  </div>
 </template>
 <script>
-import SigninForm from '~/components/SigninForm'
+import SignupDialog from '~/components/SignupDialog.vue'
+import SigninDialog from '~/components/SigninDialog.vue'
+
 export default {
   layout: 'Lp',
   components: {
-    SigninForm
+    SigninDialog,
+    SignupDialog
   }
 }
 </script>
