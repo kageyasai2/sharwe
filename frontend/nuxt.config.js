@@ -34,6 +34,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/vue-scrollto',
+    '~/plugins/vuelidate'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -64,9 +66,9 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/assets/scss/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

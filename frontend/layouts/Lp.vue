@@ -1,8 +1,8 @@
 <template>
-  <v-app dark>
+  <v-app>
     <Header />
     <v-content>
-      <v-container>
+      <v-container class="pa-0" fluid>
         <nuxt />
       </v-container>
     </v-content>
