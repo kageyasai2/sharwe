@@ -1,17 +1,17 @@
 <template>
-    <div class="top-wrapper">
-      <div class="top-message">
-        <h1>Sharwe</h1>
-        <p>利用者が作成したハンドメイド作品をみんなと共有するサービスです</p>
-        <p>作品を投稿または検索をしてお気に入りの作品を見つけよう</p>
-      </div>
-      <div class="signin-btn">
-        <SigninDialog />
-      </div>
-      <div class="signup-btn">
-        <SignupDialog />
-      </div>
+  <div class="top-wrapper">
+    <div class="top-message">
+      <h1>Sharwe</h1>
+      <p>利用者が作成したハンドメイド作品をみんなと共有するサービスです</p>
+      <p>作品を投稿または検索をしてお気に入りの作品を見つけよう</p>
     </div>
+    <div class="signin-btn">
+      <SigninDialog />
+    </div>
+    <div class="signup-btn">
+      <SignupDialog />
+    </div>
+  </div>
 </template>
 <script>
 import SignupDialog from '~/components/SignupDialog.vue'

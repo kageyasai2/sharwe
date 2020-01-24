@@ -8,8 +8,13 @@
 .btn-text-color {
   color: $main-color;
 }
+
 @media screen and (max-width: 599px){
   .signin {
     width: 80%;
   }
+}
+
+small {
+  color: $main-color;
 }

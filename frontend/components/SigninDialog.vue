@@ -14,10 +14,25 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field label="Email*" required />
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                  label="Email*"
+                  required
+                />
               </v-col>
               <v-col cols="12">
-                <v-text-field label="Password*" type="password" required />
+                <v-text-field
+                  v-model="password"
+                  :error-messages="passwordErrors"
+                  @input="$v.password.$touch()"
+                  @blur="$v.password.$touch()"
+                  label="Password*"
+                  type="password"
+                  required
+                />
               </v-col>
             </v-row>
           </v-container>
@@ -25,12 +40,12 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn @click="dialog = false" text>
+          <v-btn @click="close" text>
             <span class="btn-text-color">
               閉じる
             </span>
           </v-btn>
-          <v-btn @click="dialog = false" text>
+          <v-btn @click="submit" text>
             <span class="btn-text-color">
               ログイン
             </span>
@@ -42,14 +57,54 @@
 </template>
 
 <script>
+import { required, minLength, maxLength, email } from 'vuelidate/lib/validators'
+import { validateEmail, validatePassword } from '~/plugins/utils/vuelidates.js'
+
 export default {
   data: () => ({
     dialog: false,
     email: '',
-    userName: '',
-    password: '',
-    rePassword: ''
-  })
+    password: ''
+  }),
+
+  validations: {
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      minLength: minLength(6),
+      maxLength: maxLength(64)
+    }
+  },
+
+  computed: {
+    emailErrors () {
+      return validateEmail(this.$v.email)
+    },
+    passwordErrors () {
+      return validatePassword(this.$v.password)
+    }
+  },
+
+  methods: {
+    submit () {
+      if (this.$v.$touch()) {
+        this.dialog = false
+        this.clearInputValue()
+      }
+    },
+    close () {
+      this.dialog = false
+      this.$v.$reset()
+      this.clearInputValue()
+    },
+    clearInputValue () {
+      this.email = ''
+      this.password = ''
+    }
+  }
 }
 </script>
 
