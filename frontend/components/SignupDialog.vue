@@ -9,6 +9,12 @@
       <v-card>
         <v-card-title>
           <span class="headline btn-text-color">新規登録</span>
+          <div v-if="errMsg == ''">
+            <v-spacer />
+          </div>
+          <div v-else>
+            <small>{{ errMsg }}</small>
+          </div>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -91,7 +97,8 @@ export default {
     email: '',
     userName: '',
     password: '',
-    rePassword: ''
+    rePassword: '',
+    errMsg: ''
   }),
 
   validations: {
@@ -138,8 +145,23 @@ export default {
     create () {
       this.$v.$touch()
       if (this.$v.$invalid) { return }
-      this.clearInputValue()
-      this.$router.push('/home')
+      const sendData = {
+        userName: this.userName,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.rePassword
+      }
+      const response = this.$axios.$post('/api/auth', sendData)
+        .then((response) => {
+          console.log(response)
+          this.clearInputValue()
+          this.$router.push('/home')
+        })
+        .catch((err) => {
+          console.log(err)
+          this.errMsg = '新規作成に失敗しました'
+        })
+      console.log(response)
     },
     close () {
       this.$v.$reset()
@@ -147,6 +169,7 @@ export default {
     },
     clearInputValue () {
       this.dialog = false
+      this.errMsg = ''
       this.email = ''
       this.userName = ''
       this.password = ''
