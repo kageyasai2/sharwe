@@ -11,6 +11,7 @@
     <div class="signup-btn">
       <SignupDialog />
     </div>
+    <i class="mdi mdi-twitter"/>
   </div>
 </template>
 <script>

@@ -136,17 +136,17 @@ export default {
 
   methods: {
     create () {
-      if (this.$v.$touch()) {
-        this.dialog = false
-        this.clearInputValue()
-      }
+      this.$v.$touch()
+      if (this.$v.$invalid) { return }
+      this.clearInputValue()
+      this.$router.push('/home')
     },
     close () {
-      this.dialog = false
       this.$v.$reset()
       this.clearInputValue()
     },
     clearInputValue () {
+      this.dialog = false
       this.email = ''
       this.userName = ''
       this.password = ''
