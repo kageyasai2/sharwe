@@ -138,11 +138,14 @@ export default {
         password: this.password,
         password_confirmation: this.rePassword
       }
-      const response = this.$axios.$post('/api/auth', sendData)
+      const response = this.$axios.post('/api/auth', sendData)
         .then((response) => {
-          console.log(response)
+          this.$store.dispatch('user/signIn', {
+            currentUser: response.data.data,
+            headerInfo: response.headers
+          })
           this.clearInputValue()
-          this.$router.push('/auth/signIn')
+          this.$router.push(`/first`)
         })
         .catch((err) => {
           console.log(err)
@@ -153,7 +156,6 @@ export default {
       console.log(response)
     },
     clearInputValue () {
-      this.errMsg = ''
       this.email = ''
       this.userName = ''
       this.password = ''

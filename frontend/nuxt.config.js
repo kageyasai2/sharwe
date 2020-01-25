@@ -35,7 +35,8 @@ export default {
   */
   plugins: [
     '~plugins/vue-scrollto',
-    '~/plugins/vuelidate'
+    '~/plugins/vuelidate',
+    '~plugins/persistedstate.js'
   ],
   /*
   ** Nuxt.js dev-modules
