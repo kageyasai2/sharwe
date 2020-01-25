@@ -8,7 +8,7 @@ module Api
       end
 
       def account_update_params
-        params.require(:registration).permit(:userName, :email)
+        params.require(:registration).permit(:userName, :email, :avatar)
       end
     end
   end
