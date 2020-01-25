@@ -5,24 +5,32 @@
       <p>利用者が作成したハンドメイド作品をみんなと共有するサービスです</p>
       <p>作品を投稿または検索をしてお気に入りの作品を見つけよう</p>
     </div>
-    <div class="signin-btn">
-      <SigninDialog />
-    </div>
-    <div class="signup-btn">
-      <SignupDialog />
-    </div>
+    <v-btn to="/auth/signIn" nuxt>
+      ログイン
+    </v-btn>
+    <v-btn to="/auth/signUp" nuxt>
+      新規登録
+    </v-btn>
+    <v-btn @click="logout" nuxt>
+      ログアウト
+    </v-btn>
     <i class="mdi mdi-twitter" />
+    <p>twitter共有つける</p>
   </div>
 </template>
 <script>
-import SignupDialog from '~/components/SignupDialog.vue'
-import SigninDialog from '~/components/SigninDialog.vue'
-
 export default {
   layout: 'Lp',
-  components: {
-    SigninDialog,
-    SignupDialog
+  methods: {
+    logout () {
+      const response = this.$axios.delete('/api/auth/sign_out')
+        .then((response) => {
+          console.log(response)
+        }).catch((err) => {
+          console.log(err)
+        })
+      console.log(response)
+    }
   }
 }
 </script>

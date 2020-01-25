@@ -1,0 +1,19 @@
+.signup {
+  margin-top: 50px;
+  width: 80%;
+}
+
+.btn-text-color {
+  color: $main-color;
+}
+
+@media screen and (max-width: 599px){
+  .signup {
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+small {
+  color: $main-color;
+}
