@@ -3,13 +3,16 @@
     <v-card class="signup">
       <v-card-title>
         <span class="headline btn-text-color">新規登録</span>
+      </v-card-title>
+      <v-card-subtitle>
         <div v-if="errMsg == ''">
           <v-spacer />
         </div>
         <div v-else>
-          <small>{{ errMsg }}</small>
+          <h4 class="err-msg">{{ errMsg }}</h4>
+          <h4 class="err-msg">{{ errors.email }}</h4>
         </div>
-      </v-card-title>
+      </v-card-subtitle>
       <v-card-text>
         <v-container>
           <v-row>
@@ -61,7 +64,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn @click="create" text>
+        <v-btn @click="submit" text>
           <span class="btn-text-color">
             作成
           </span>
@@ -85,7 +88,10 @@ export default {
     userName: '',
     password: '',
     rePassword: '',
-    errMsg: ''
+    errMsg: '',
+    errors: {
+      email: ''
+    }
   }),
 
   validations: {
@@ -129,31 +135,31 @@ export default {
   },
 
   methods: {
-    create () {
+    async submit () {
       this.$v.$touch()
       if (this.$v.$invalid) { return }
-      const sendData = {
-        userName: this.userName,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.rePassword
+      try {
+        const sendData = {
+          userName: this.userName,
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.rePassword
+        }
+        const response = await this.$axios.post('/api/auth', sendData)
+        this.$store.dispatch('user/signIn', {
+          currentUser: response.data.data,
+          headerInfo: response.headers
+        })
+        this.clearInputValue()
+        this.$router.push(`/first`)
+      } catch (err) {
+        this.errMsg = '新規作成に失敗しました'
+        if (err.response.data.errors.email[0]) {
+          this.errors.email = this.email + err.response.data.errors.email[0]
+        }
+        this.$v.$reset()
+        this.clearInputValue()
       }
-      const response = this.$axios.post('/api/auth', sendData)
-        .then((response) => {
-          this.$store.dispatch('user/signIn', {
-            currentUser: response.data.data,
-            headerInfo: response.headers
-          })
-          this.clearInputValue()
-          this.$router.push(`/first`)
-        })
-        .catch((err) => {
-          console.log(err)
-          this.errMsg = '新規作成に失敗しました'
-          this.$v.$reset()
-          this.clearInputValue()
-        })
-      console.log(response)
     },
     clearInputValue () {
       this.email = ''

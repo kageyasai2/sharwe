@@ -1,10 +1,22 @@
 .signup {
   margin-top: 50px;
   width: 80%;
-}
 
-.btn-text-color {
-  color: $main-color;
+  .btn-text-color {
+    color: $main-color;
+  }
+  
+  .v-card__subtitle {
+    padding-bottom: 0;
+  }
+
+  small {
+    color: $main-color;
+  }
+
+  .err-msg {
+    color: #ea5550
+  }
 }
 
 @media screen and (max-width: 599px){
@@ -12,8 +24,4 @@
     margin-top: 0;
     width: 100%;
   }
-}
-
-small {
-  color: $main-color;
 }

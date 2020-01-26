@@ -83,27 +83,31 @@ export default {
   },
 
   methods: {
-    submit () {
+    async submit () {
       this.$v.$touch()
       if (this.$v.$invalid) { return }
-      const response = this.$axios.post('/api/auth/sign_in',
-        {
+      try {
+        const sendData = {
           session: {
             email: this.email,
             password: this.password
           }
         }
-      ).then((response) => {
-        console.log(response)
+        const response = await this.$axios.post('/api/auth/sign_in', sendData)
+        const currentUser = response.data.data
+        const headerInfo = response.headers
+        this.$store.dispatch('user/signIn', {
+          currentUser,
+          headerInfo
+        })
         this.$v.$reset()
         this.clearInputValue()
-        this.$router.push('/home')
-      }).catch((err) => {
+        this.$router.push(`/user/${currentUser.id}/mypage`)
+      } catch (err) {
         console.log(err)
         this.errMsg = 'Eメールまたはパスワードが違います'
         this.$v.$reset()
-      })
-      console.log(response)
+      }
     },
     clearInputValue () {
       this.email = ''
