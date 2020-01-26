@@ -1,25 +1,85 @@
 <template>
-  <div class="top-wrapper">
-    <div class="top-message">
-      <h1>Sharwe</h1>
-      <p>利用者が作成したハンドメイド作品をみんなと共有するサービスです</p>
-      <p>作品を投稿または検索をしてお気に入りの作品を見つけよう</p>
+  <div>
+    <div class="top-wrapper">
+      <div class="top-message">
+        <h1>Sharwe</h1>
+        <p>ハンドメイド作品のレシピをみんなと共有するサービスです</p>
+        <p>レシピを投稿または検索をしてお気に入りの作品を見つけよう</p>
+      </div>
+      <div>
+        <v-btn v-if="!this.$store.getters['user/fetchIsSignIn']" to="/auth/signIn" nuxt>
+          ログイン
+        </v-btn>
+        <v-btn v-else @click="signOut">
+          ログアウト
+        </v-btn>
+      </div>
+      <div>
+        <v-btn to="/auth/signUp" class="signup" nuxt>
+          Sharweを始める
+        </v-btn>
+      </div>
     </div>
-    <div>
-      <v-btn v-if="!this.$store.getters['user/fetchIsSignIn']" to="/auth/signIn" nuxt>
-        ログイン
-      </v-btn>
-      <v-btn v-else @click="signOut">
-        ログアウト
+    <div class="service-wrapper">
+      <p class="service-title">
+        Sharweが提供する機能
+      </p>
+      <small>*が付いている機能はログイン必須です</small>
+      <div class="service-items">
+        <div class="service-item">
+          <div class="service-icon">
+            <v-icon size="80">
+              search
+            </v-icon>
+            <p>レシピ検索</p>
+          </div>
+          <p class="service-txt">
+            レシピの名前やジャンル等からレシピ検索することができます
+          </p>
+          <v-btn class="service-btn" to="/recipes/search" nuxt>
+            >レシピ検索<v-icon>search</v-icon>
+          </v-btn>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">
+            <v-icon size="80">
+              create
+            </v-icon>
+            <p>レシピ作成*</p>
+          </div>
+          <p class="service-txt">
+            オリジナルのハンドメイド作品のレシピを作成して、みんなに公開することができます
+          </p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">
+            <v-icon size="80">
+              share
+            </v-icon>
+            <p>SNSでレシピを共有</p>
+          </div>
+          <p class="service-txt">
+            レシピのURLをSNSでみんなに共有することができます
+          </p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">
+            <v-icon size="80">
+              favorite
+            </v-icon>
+            <p>お気に入り*</p>
+          </div>
+          <p class="service-txt">
+            気に入ったレシピがあればお気に入りをして、自分だけのレシピブックを作成しましょう
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="signup">
+      <v-btn to="/auth/signUp" class="bottom-signup" nuxt>
+        Sharweを始める
       </v-btn>
     </div>
-    <div>
-      <v-btn to="/auth/signUp" nuxt>
-        新規登録
-      </v-btn>
-    </div>
-    <i class="mdi mdi-twitter" />
-    <p>twitter共有つける</p>
   </div>
 </template>
 <script>

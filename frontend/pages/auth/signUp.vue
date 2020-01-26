@@ -9,8 +9,12 @@
           <v-spacer />
         </div>
         <div v-else>
-          <h4 class="err-msg">{{ errMsg }}</h4>
-          <h4 class="err-msg">{{ errors.email }}</h4>
+          <h4 class="err-msg">
+            {{ errMsg }}
+          </h4>
+          <h4 class="err-msg">
+            {{ errors.email }}
+          </h4>
         </div>
       </v-card-subtitle>
       <v-card-text>

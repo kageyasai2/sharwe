@@ -1,34 +1,121 @@
 .top-wrapper {
-  padding: 150px 0 5px 5px;
+  padding: 100px 0 5px 5px;
   height: 100%;
   font-size: 1.9em;
   text-align: center;
   letter-spacing: 5px;
+  border-bottom: 2.5px solid $main-color;
 
   .top-message > h1 {
     padding-bottom: 15px;
+    font-size: 3em;
   }
   .v-btn {
+    font-size: 0.85em;
     background-color: $main-color !important;
     color: whitesmoke;
     width: 25%;
     height: 6vh;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 15px;
   }
 }
 
+.service-wrapper {
+  text-align: center;
+  .service-title {
+    font-size: 1.9em;
+  }
+  .service-item {
+    margin-bottom: 20px;
+    .service-icon {
+      color: $main-color;
+      i {
+        color: $main-color;
+      }
+    }
+    .service-txt {
+      font-size: 1.2em;
+      margin: 0 auto;
+    }
+  }
+  .service-btn {
+    background-color: $main-color !important;
+    color: whitesmoke;
+    width: 25%;
+    margin-top: 5px;
+    height: 6vh;
+  }
+}
+
+.signup {
+  text-align: center;
+  .bottom-signup {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    background-color: $main-color !important;
+    color: whitesmoke;
+    width: 25%;
+    margin-top: 5px;
+    height: 6vh;
+  }
+}
+small {
+  color: $main-color;
+}
+
 @media screen and (max-width: 599px) {
   .top-wrapper {
-    position: relative;
-    top: 50px;
-    padding-top: 70px;
+    height: 70vh;
+    padding-top: 60px;
     font-size: 1.0em;
     text-align: center;
     .v-btn {
+      font-size: 1.5em;
       width: 80%;
-      margin-top: 30px;
+      margin-top: 25px;
       margin-bottom: 5px;
     }
   }
+
+  .service-wrapper {
+    text-align: center;
+    .service-title {
+      font-size: 1.5em;
+    }
+    .service-item {
+      margin-bottom: 20px;
+      .service-icon {
+        color: $main-color;
+        i {
+          color: $main-color;
+        }
+      }
+      .service-txt {
+        font-size: 1.0em !important;
+        margin: 0 auto;
+        width: 80%;
+      }
+    }
+    .service-btn {
+      background-color: $main-color !important;
+      color: whitesmoke;
+      width: 50%;
+      margin-top: 5px;
+      height: 6vh;
+    }
+  }
+
+  .signup {
+    text-align: center;
+    .bottom-signup {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      background-color: $main-color !important;
+      color: whitesmoke;
+      width: 80%;
+      margin-top: 5px;
+      height: 6vh;
+    }
+  }  
 }
