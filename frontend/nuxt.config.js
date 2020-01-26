@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+require('dotenv').config()
 export default {
   mode: 'universal',
   server: {
@@ -35,7 +35,8 @@ export default {
   */
   plugins: [
     '~plugins/vue-scrollto',
-    '~/plugins/vuelidate'
+    '~/plugins/vuelidate',
+    '~plugins/persistedstate.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -53,13 +54,15 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/auth'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.API_URL
   },
   /*
   ** vuetify module configuration

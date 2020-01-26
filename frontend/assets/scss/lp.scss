@@ -8,8 +8,13 @@
   .top-message > h1 {
     padding-bottom: 15px;
   }
-  .signup-btn,.signin-btn {
-    margin-top: 50px;
+  .v-btn {
+    background-color: $main-color !important;
+    color: whitesmoke;
+    width: 25%;
+    height: 6vh;
+    margin-top: 40px;
+    margin-bottom: 15px;
   }
 }
 
@@ -20,5 +25,10 @@
     padding-top: 70px;
     font-size: 1.0em;
     text-align: center;
+    .v-btn {
+      width: 80%;
+      margin-top: 30px;
+      margin-bottom: 5px;
+    }
   }
 }
