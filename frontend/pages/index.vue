@@ -21,10 +21,15 @@
       </div>
     </div>
     <div class="service-wrapper">
+      <br>
+      <p>＊本サービスはβ版のため提供できない機能がございます。＊</p>
+      <p>＊ご了承ください＊</p>
       <p class="service-title">
         Sharweが提供する機能
       </p>
-      <small>*が付いている機能はログイン必須です</small>
+      <p class="warning-msg">
+        レシピ作成とお気に入り機能を利用するためにはログインが必要です
+      </p>
       <div class="service-items">
         <div class="service-item">
           <div class="service-icon">
@@ -36,9 +41,6 @@
           <p class="service-txt">
             レシピの名前やジャンル等からレシピ検索することができます
           </p>
-          <v-btn class="service-btn" to="/recipes/search" nuxt>
-            >レシピ検索<v-icon>search</v-icon>
-          </v-btn>
         </div>
         <div class="service-item">
           <div class="service-icon">
