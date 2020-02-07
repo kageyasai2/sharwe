@@ -1,44 +1,37 @@
 export const state = () => ({
-  isSignedIn: false,
-  currentUser: null,
-  headerInfo: null
+  headerInfo: {
+    id: null,
+    accessToken: null,
+    uid: null,
+    loggedIn: false
+  }
 })
 
 export const getters = {
-  fetchIsSignIn (state) {
-    return state.isSignedIn
-  },
-  fetchCurrentUser (state) {
-    return state.currentUser
-  },
   fetchHeaderInfo (state) {
     return state.headerInfo
   }
 }
 
 export const mutations = {
-  setSignInState (state, { isSignedIn, currentUser, headerInfo }) {
-    state.isSignedIn = isSignedIn
-    state.currentUser = currentUser
-    state.headerInfo = headerInfo
+  setSignInState (state, { headerInfo, loggedIn }) {
+    state.headerInfo.accessToken = headerInfo.accessToken
+    state.headerInfo.uid = headerInfo.uid
+    state.headerInfo.id = headerInfo.id
+    state.headerInfo.loggedIn = loggedIn
   }
 }
 
 export const actions = {
-  signIn ({ commit }, { currentUser, headerInfo }) {
-    const params = {
-      isSignedIn: true,
-      currentUser,
-      headerInfo
-    }
-    commit('setSignInState', params)
+  signIn ({ commit }, { headerInfo, loggedIn }) {
+    commit('setSignInState', { headerInfo, loggedIn })
   },
   signOut ({ commit }) {
-    const params = {
-      isSignedIn: false,
-      currentUser: null,
-      headerInfo: null
+    const headerInfo = {
+      accessToken: null,
+      uid: null,
+      id: null
     }
-    commit('setSignInState', params)
+    commit('setSignInState', { headerInfo, loggedIn: false })
   }
 }

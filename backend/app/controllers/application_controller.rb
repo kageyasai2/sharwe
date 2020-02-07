@@ -13,7 +13,8 @@ class ApplicationController < ActionController::API
 
   def authenticate_user_from_token
     token = request.headers['Authorization']
-    user = User.find_by(access_token: token)
+    uid = request.headers['uid']
+    user = User.find_by(access_token: token, uid: uid)
 
     if user && user.secure_token_compare(token)
       user

@@ -7,16 +7,11 @@
         <p>レシピを投稿または検索をしてお気に入りの作品を見つけよう</p>
       </div>
       <div>
-        <v-btn v-if="!this.$store.getters['user/fetchIsSignIn']" to="/auth/signIn" nuxt>
-          ログイン
+        <v-btn v-if="!this.$auth.$state.loggedIn" @click="signin">
+          Googleアカウントでログイン
         </v-btn>
         <v-btn v-else @click="signOut">
           ログアウト
-        </v-btn>
-      </div>
-      <div>
-        <v-btn to="/auth/signUp" class="signup" nuxt>
-          Sharweを始める
         </v-btn>
       </div>
     </div>
@@ -77,38 +72,22 @@
         </div>
       </div>
     </div>
-    <div class="signup">
-      <v-btn to="/auth/signUp" class="bottom-signup" nuxt>
-        Sharweを始める
-      </v-btn>
-    </div>
-    <v-btn @click="googleAuth">
-      googleAuth
-    </v-btn>
   </div>
 </template>
 <script>
 export default {
   layout: 'Lp',
+  mounted () {
+    console.log(this.$auth.$state)
+    console.log(this.$store.state.user.headerInfo)
+  },
   methods: {
-    async signOut () {
-      try {
-        const headers = this.$store.getters['user/fetchHeaderInfo']
-        const headerItems = {
-          headers: {
-            'uid': headers.uid,
-            'client': headers.client,
-            'access-token': headers['access-token']
-          }
-        }
-        await this.$axios.delete('/api/auth/sign_out', headerItems)
-        this.$store.dispatch('user/signOut')
-      } catch (err) {
-        console.log(err)
-      }
-    },
-    googleAuth () {
+    signin () {
       this.$auth.loginWith('google')
+    },
+    signOut () {
+      this.$auth.logout('google')
+      this.$store.dispatch('user/signOut')
     }
   }
 }

@@ -23,13 +23,10 @@
 
 <script>
 export default {
-  mounted () {
-    console.log(this.$auth.$state.user.picture)
-  },
   methods: {
     signOut () {
       this.$auth.logout('google')
-      console.log('delete accesstoken logic')
+      this.$store.dispatch('user/signOut')
     }
   }
 }
