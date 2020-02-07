@@ -1,17 +1,19 @@
 .top-wrapper {
   padding: 100px 0 5px 5px;
   height: 100%;
-  font-size: 1.9em;
   text-align: center;
   letter-spacing: 5px;
   border-bottom: 2.5px solid $main-color;
 
-  .top-message > h1 {
-    padding-bottom: 15px;
-    font-size: 3em;
+  .top-message {
+    font-size: 1.9em;
+    h1 {
+      padding-bottom: 15px;
+      font-size: 3em;
+    }
   }
   .v-btn {
-    font-size: 0.85em;
+    font-size: 1.3em;
     background-color: $main-color !important;
     color: whitesmoke;
     width: 25%;
@@ -46,27 +48,16 @@
   }
 }
 
-.signup {
-  text-align: center;
-  .bottom-signup {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-    background-color: $main-color !important;
-    color: whitesmoke;
-    width: 25%;
-    margin-top: 5px;
-    height: 6vh;
-  }
-}
-
 @media screen and (max-width: 599px) {
   .top-wrapper {
     height: 70vh;
     padding-top: 60px;
-    font-size: 1.0em;
     text-align: center;
+    .top-message {
+      font-size: 1.1em;
+    }
     .v-btn {
-      font-size: 1.5em;
+      font-size: 1.0em;
       width: 80%;
       margin-top: 25px;
       margin-bottom: 5px;
@@ -91,19 +82,6 @@
         margin: 0 auto;
         width: 80%;
       }
-    }
-  }
-
-  .signup {
-    text-align: center;
-    .bottom-signup {
-      font-size: 1.5em;
-      margin-bottom: 30px;
-      background-color: $main-color !important;
-      color: whitesmoke;
-      width: 80%;
-      margin-top: 5px;
-      height: 6vh;
     }
   }
 }

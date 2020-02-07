@@ -102,8 +102,8 @@ export default {
   },
   auth: {
     redirect: {
-      login: '/', // 未ログイン状態でアクセスした場合のリダイレクト先
-      logout: '/inspire', // ログアウト後の遷移先
+      login: '/home', // 未ログイン状態でアクセスした場合のリダイレクト先
+      logout: '/', // ログアウト後の遷移先
       callback: '/auth/callback', // コールバックルート
       home: '/auth/redirect' // ログイン後の遷移先
     },
