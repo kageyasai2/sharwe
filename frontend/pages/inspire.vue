@@ -1,6 +1,9 @@
 <template>
   <v-layout>
     <v-flex class="text-center">
+      <v-btn @click="signOut">
+        signOut
+      </v-btn>
       <img
         src="/v.png"
         alt="Vuetify.js"
@@ -17,3 +20,17 @@
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+export default {
+  mounted () {
+    console.log(this.$auth.$state.user.picture)
+  },
+  methods: {
+    signOut () {
+      this.$auth.logout('google')
+      console.log('delete accesstoken logic')
+    }
+  }
+}
+</script>
