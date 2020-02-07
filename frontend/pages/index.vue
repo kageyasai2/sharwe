@@ -82,6 +82,9 @@
         Sharweを始める
       </v-btn>
     </div>
+    <v-btn @click="googleAuth">
+      googleAuth
+    </v-btn>
   </div>
 </template>
 <script>
@@ -103,6 +106,9 @@ export default {
       } catch (err) {
         console.log(err)
       }
+    },
+    googleAuth () {
+      this.$auth.loginWith('google')
     }
   }
 }

@@ -99,5 +99,18 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  auth: {
+    redirect: {
+      login: '/', // 未ログイン状態でアクセスした場合のリダイレクト先
+      logout: '/inspire', // ログアウト後の遷移先
+      callback: '/callback', // コールバックルート
+      home: '/redirect' // ログイン後の遷移先
+    },
+    strategies: {
+      google: {
+        client_id: process.env.GOOGLE_CLIENT_ID
+      }
+    }
   }
 }
