@@ -1,5 +1,5 @@
 .top-wrapper {
-  padding: 100px 0 5px 5px;
+  padding: 10px 0 5px 5px;
   height: 100%;
   text-align: center;
   letter-spacing: 5px;
@@ -7,9 +7,8 @@
 
   .top-message {
     font-size: 1.9em;
-    h1 {
-      padding-bottom: 15px;
-      font-size: 3em;
+    .title-logo {
+      width: 45vw;
     }
   }
   .v-btn {
@@ -50,11 +49,14 @@
 
 @media screen and (max-width: 599px) {
   .top-wrapper {
-    height: 70vh;
+    height: 50vh;
     padding-top: 60px;
     text-align: center;
     .top-message {
       font-size: 1.1em;
+      .title-logo {
+        width: 80vw;
+      }
     }
     .v-btn {
       font-size: 1.0em;

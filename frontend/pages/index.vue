@@ -2,7 +2,7 @@
   <div>
     <div class="top-wrapper">
       <div class="top-message">
-        <h1>Sharwe</h1>
+        <img class="title-logo" src="~assets/image1.png">
         <p>ハンドメイド作品のレシピをみんなと共有するサービスです</p>
         <p>レシピを投稿または検索をしてお気に入りの作品を見つけよう</p>
       </div>

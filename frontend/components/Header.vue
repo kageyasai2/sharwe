@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-app-bar class="app-bar" dense>
-      <v-toolbar-title>Sharwe</v-toolbar-title>
+      <v-toolbar-title>
+        <img class="title-logo" src="~assets/image1.png">
+      </v-toolbar-title>
       <v-spacer />
     </v-app-bar>
   </div>
