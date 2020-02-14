@@ -1,9 +1,30 @@
+div {
+  padding: 5px;
+}
+
+.v-list-item__avatar {
+  margin-left: 16px;
+}
+
 .app-bar {
-  z-index: 1000;
   border-top: 2.5px solid $main-color;
   border-bottom: 2.5px solid $main-color;
 }
 
 .title-logo {
-  width: 8%;
+  width: 13%;
+}
+
+.signin {
+  padding: 0 16px;
+}
+
+.signout {
+  padding: 0 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .title-logo {
+    width: 35%;
+  }
 }
