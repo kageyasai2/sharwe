@@ -11,7 +11,7 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>{{this.$auth.$state.user.name}}</v-list-item-title>
+          <v-list-item-title>{{ this.$auth.$state.user.name }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -61,6 +61,7 @@
       dense
       app
       flat
+      height="60"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-flex d-sm-none" />
       <v-toolbar-title>
@@ -75,6 +76,16 @@
           </v-icon>
           レシピ検索
         </v-btn>
+        <v-btn v-if="!currentUser.loggedIn" @click="signIn" class="signin d-none d-sm-flex d-md-flex d-lg-flex" text nuxt>
+          <v-icon left>
+            account_circle
+          </v-icon>
+          ログイン
+        </v-btn>
+        <the-header-icon
+          v-else
+          :current-user="currentUser"
+        />
       </v-toolbar-items>
       <v-spacer />
     </v-app-bar>
@@ -83,19 +94,22 @@
 
 <script>
 import { mapState } from 'vuex'
+import TheHeaderIcon from '~/components/organisms/TheHeaderIcon.vue'
 
 export default {
+  components: {
+    TheHeaderIcon
+  },
   data: () => {
     return {
+      thumbnail: 'https://cdn.vuetifyjs.com/images/john.jpg',
       isHydrated: false,
       drawer: false
     }
   },
   computed: {
-    breakpoint () {
-      return this.isHydrated
-        ? this.$vuetify.breakpoint.xs
-        : true
+    currentUser () {
+      return this.$auth.$state
     },
     ...mapState('user', [
       'headerInfo'

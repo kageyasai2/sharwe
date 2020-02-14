@@ -78,8 +78,7 @@
 export default {
   layout: 'Lp',
   mounted () {
-    console.log(this.$auth.$state.user.picture)
-    console.log(this.$store.state.user)
+    console.log(this.$auth.$state)
   },
   methods: {
     signin () {
