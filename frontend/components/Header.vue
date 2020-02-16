@@ -18,40 +18,40 @@
       <v-divider />
 
       <v-list dense>
-        <v-list-item to="/home">
+        <v-list-item to="/recipes/search">
           <v-list-item-icon>
-            <v-icon>menu_book</v-icon>
+            <v-icon color="#A67555" >search</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>レシピ検索</v-list-item-title>
+            <v-list-item-title class="list-item-title">レシピ検索</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item v-if="this.$auth.$state.loggedIn" :to="{ name: 'user-id-mypage', params: { id: headerInfo.id}}">
           <v-list-item-icon>
-            <v-icon>home</v-icon>
+            <v-icon color="#A67555" >home</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>マイページ</v-list-item-title>
+            <v-list-item-title class="list-item-title">マイページ</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item v-if="this.$auth.$state.loggedIn" @click="signOut" class="signout">
           <v-list-item-icon>
-            <v-icon>exit_to_app</v-icon>
+            <v-icon color="#A67555" >exit_to_app</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>ログアウト</v-list-item-title>
+            <v-list-item-title class="list-item-title">ログアウト</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item v-else @click="signIn" class="signin">
           <v-list-item-icon>
-            <v-icon>account_circle</v-icon>
+            <v-icon color="#A67555" >account_circle</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>ログイン</v-list-item-title>
+            <v-list-item-title class="list-item-title">ログイン</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -70,17 +70,17 @@
         </nuxt-link>
       </v-toolbar-title>
       <v-toolbar-items>
-        <v-btn to="/home" class="d-none d-sm-flex d-md-flex d-lg-flex" text nuxt>
-          <v-icon left>
-            menu_book
+        <v-btn to="/recipes/search" class="d-none d-sm-flex d-md-flex d-lg-flex" text nuxt>
+          <v-icon size="30" color="#A67555" left>
+            search
           </v-icon>
-          レシピ検索
+          <span class="list-item-title">レシピ検索</span>
         </v-btn>
         <v-btn v-if="!currentUser.loggedIn" @click="signIn" class="signin d-none d-sm-flex d-md-flex d-lg-flex" text nuxt>
-          <v-icon left>
+          <v-icon size="30" color="#A67555" left>
             account_circle
           </v-icon>
-          ログイン
+          <span class="list-item-title">ログイン</span>
         </v-btn>
         <the-header-icon
           v-else
