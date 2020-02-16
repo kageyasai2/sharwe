@@ -2,7 +2,7 @@
   <div>
     <div class="top-wrapper">
       <div class="top-message">
-        <img class="title-logo" src="~assets/image1.png">
+        <img class="title-logo" src="~assets/images/image1.png">
         <p>ハンドメイド作品のレシピをみんなと共有するサービスです</p>
         <p>レシピを投稿または検索をしてお気に入りの作品を見つけよう</p>
       </div>
@@ -79,7 +79,6 @@ export default {
   layout: 'Lp',
   mounted () {
     console.log(this.$auth.$state)
-    console.log(this.$store.state.user.headerInfo)
   },
   methods: {
     signin () {
