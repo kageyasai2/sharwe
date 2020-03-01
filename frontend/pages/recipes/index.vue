@@ -1,6 +1,7 @@
 <template>
   <div>
     <SearchBtn />
+    <div class="new-recipes" />
   </div>
 </template>
 
