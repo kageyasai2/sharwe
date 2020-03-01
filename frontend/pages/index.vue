@@ -2,7 +2,7 @@
   <div>
     <div class="top-wrapper">
       <div class="top-message">
-        <img class="title-logo" src="~assets/images/image1.png">
+        <img class="title-logo" src="~assets/images/main-logo.png">
         <p>ハンドメイド作品のレシピをみんなと共有するサービスです</p>
         <p>レシピを投稿または検索をしてお気に入りの作品を見つけよう</p>
       </div>
@@ -77,9 +77,6 @@
 <script>
 export default {
   layout: 'Lp',
-  mounted () {
-    console.log(this.$auth.$state)
-  },
   methods: {
     signin () {
       this.$auth.loginWith('google')

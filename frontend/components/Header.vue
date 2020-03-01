@@ -17,48 +17,63 @@
 
       <v-divider />
 
-      <v-list dense>
-        <v-list-item to="/recipes/search">
+      <v-list dense flat>
+        <v-list-item to="/recipes">
           <v-list-item-icon>
-            <v-icon color="#A67555" >search</v-icon>
+            <v-icon color="#A67555">
+              search
+            </v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title class="list-item-title">レシピ検索</v-list-item-title>
+            <v-list-item-title class="list-item-title">
+              レシピ検索
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item v-if="this.$auth.$state.loggedIn" :to="{ name: 'user-id-mypage', params: { id: headerInfo.id}}">
           <v-list-item-icon>
-            <v-icon color="#A67555" >home</v-icon>
+            <v-icon color="#A67555">
+              home
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="list-item-title">マイページ</v-list-item-title>
+            <v-list-item-title class="list-item-title">
+              マイページ
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item v-if="this.$auth.$state.loggedIn" @click="signOut" class="signout">
           <v-list-item-icon>
-            <v-icon color="#A67555" >exit_to_app</v-icon>
+            <v-icon color="#A67555">
+              exit_to_app
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="list-item-title">ログアウト</v-list-item-title>
+            <v-list-item-title class="list-item-title">
+              ログアウト
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item v-else @click="signIn" class="signin">
           <v-list-item-icon>
-            <v-icon color="#A67555" >account_circle</v-icon>
+            <v-icon color="#A67555">
+              account_circle
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="list-item-title">ログイン</v-list-item-title>
+            <v-list-item-title class="list-item-title">
+              ログイン
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
       class="app-bar"
-      dense
       app
       flat
       height="60"
@@ -66,11 +81,11 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-flex d-sm-none" />
       <v-toolbar-title>
         <nuxt-link to="/">
-          <img class="title-logo" src="~assets/images/image1.png">
+          <img class="title-logo" src="~assets/images/header-logo.png">
         </nuxt-link>
       </v-toolbar-title>
       <v-toolbar-items>
-        <v-btn to="/recipes/search" class="d-none d-sm-flex d-md-flex d-lg-flex" text nuxt>
+        <v-btn @click="search" class="d-none d-sm-flex d-md-flex d-lg-flex" text nuxt>
           <v-icon size="30" color="#A67555" left>
             search
           </v-icon>
@@ -125,6 +140,9 @@ export default {
     signOut () {
       this.$auth.logout('google')
       this.$store.dispatch('user/signOut')
+    },
+    search () {
+      this.$router.push('/recipes')
     }
   }
 }
