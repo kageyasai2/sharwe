@@ -1,0 +1,26 @@
+.new-recipe-item {
+  border: 1px solid $main-color;
+  max-height: 450px;
+
+  .recipe-image {
+    height: 250px;
+    border-bottom: 1px solid $main-color;
+  }
+
+  .recipe-title {
+    text-align: center;
+    color: #555555;
+  }
+
+  .recipe-link {
+    color: $main-color;
+    text-decoration: none;
+  }
+}
+
+.new-recipes {
+  h2 {
+    color: $main-color;
+    border-bottom: 2px solid $main-color;
+  }
+}
