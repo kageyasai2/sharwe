@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :recipes, dependent: :destroy
   has_secure_token :access_token
+
   def self.find_for_oauth(auth)
     User.where(uid: auth[:uid], provider: auth[:provider], email: auth[:email]).first_or_initialize
   end
